@@ -1,23 +1,46 @@
+# Manim Animation Generation using Generative AI
 
-# Manim GenAI Assignment
+## Overview
 
-## Project Overview
-Used Google Gemini API to automatically generate Manim animation
-code for two mathematical concepts and critically evaluated output.
+This project explores the use of the Google Gemini API to generate Manim Community Edition animations for mathematical concepts. Two different prompts were tested, and the generated code was analyzed to identify its strengths and limitations.
 
-## Setup Instructions
+## Installation
+
+Install all required dependencies using:
+
+```bash
 pip install -r requirements.txt
+```
 
-## How to Run
+## Running the Project
 
-### Task 1 - Pythagorean Theorem
+### Pythagorean Theorem Animation
+
+```bash
 manim -pql task1_pythagorean/pythagoras.py PythagorasScene
+```
 
-### Task 2 - Fourier Series
+### Fourier Series Animation
+
+```bash
 manim -pql task2_fourier/fourier_series.py FourierSeriesScene
+```
 
-## Key Findings
-- Gemini generated mostly working code structure
-- Task 1: Missing right angle marker, hardcoded square sizes
-- Task 2: Missing pi labels on x-axis, no proper legend box
-- Both scenes needed LaTeX installation to render MathTex
+## Evaluation
+
+### Pythagorean Theorem
+
+* Generated code was largely functional.
+* Right-angle indicator was not included.
+* Square dimensions were manually hardcoded instead of being computed dynamically.
+
+### Fourier Series
+
+* X-axis labels for π were absent.
+* A proper legend explaining the plotted curves was not generated.
+
+## Observations
+
+* Gemini produced a solid initial implementation for both animations.
+* Minor manual corrections were required to improve visual quality and mathematical completeness.
+* Rendering scenes containing `MathTex` requires a working LaTeX installation.
