@@ -1,26 +1,49 @@
-# Task 2 Critique - Fourier Series
+# Review of Task 2 – Fourier Series Animation
 
-## Issue 1: No Legend Box
-- **Problem:** Labels on right side are small and hard to read
-- **Impact:** Viewer cannot easily match colors to harmonic numbers
-- **Fix:** Add a proper legend box with colored squares and labels
+## 1. Legend Could Be More Informative
 
-## Issue 2: X-axis Missing Pi Labels
-- **Problem:** X-axis shows plain numbers instead of π, 2π, 3π, 4π
-- **Impact:** Viewer cannot relate x-axis values to wave period
-- **Fix:** Use custom x_axis_labels with MathTex pi symbols
+**Observation:** The harmonic labels are placed along the right side of the scene without a dedicated legend.
 
-## Issue 3: Confusing First Cumulative Transform
-- **Problem:** Transform from harmonic_plot.copy() is visually unclear
-- **Impact:** Viewer confused about difference between harmonic and sum
-- **Fix:** Use ReplacementTransform with clearly separate objects
+**Effect:** It is difficult to quickly associate each curve with its corresponding harmonic.
 
-## Issue 4: All Harmonics Stay Visible and Overlap
-- **Problem:** All 5 harmonic curves shown simultaneously
-- **Impact:** Screen becomes cluttered making cumulative sum hard to see
-- **Fix:** Fade out individual harmonics after adding to cumulative sum
+**Suggested Improvement:** Introduce a compact legend box containing colored markers and matching harmonic labels for improved readability.
 
-## Issue 5: Equal Animation Speed for All Harmonics
-- **Problem:** Each harmonic takes same run_time regardless of visual change
-- **Impact:** Later harmonics show tiny changes but take same time as first
-- **Fix:** Reduce run_time progressively for later harmonics
+---
+
+## 2. Missing π-Based Axis Labels
+
+**Observation:** The x-axis uses standard numeric values instead of mathematical labels such as ( \pi ), (2\pi), (3\pi), and (4\pi).
+
+**Effect:** The periodic nature of the waveform is less intuitive for the viewer.
+
+**Suggested Improvement:** Replace the default tick labels with `MathTex` expressions representing the appropriate multiples of ( \pi ).
+
+---
+
+## 3. Initial Cumulative Transition Is Unclear
+
+**Observation:** The first cumulative waveform is created using `harmonic_plot.copy()`, making the transition difficult to interpret.
+
+**Effect:** Viewers may struggle to distinguish the individual harmonic from the cumulative approximation.
+
+**Suggested Improvement:** Use a `ReplacementTransform` between clearly separated objects to produce a more understandable animation.
+
+---
+
+## 4. Harmonic Curves Create Visual Clutter
+
+**Observation:** Every harmonic remains visible after it is introduced.
+
+**Effect:** Multiple overlapping curves reduce the clarity of the cumulative Fourier approximation.
+
+**Suggested Improvement:** Gradually fade out each individual harmonic once it has been incorporated into the cumulative sum.
+
+---
+
+## 5. Uniform Animation Timing
+
+**Observation:** Every harmonic is animated with the same `run_time`.
+
+**Effect:** Later harmonics contribute only minor visual changes but occupy the same amount of animation time as the earlier, more significant harmonics.
+
+**Suggested Improvement:** Decrease the animation duration progressively for higher-order harmonics to maintain a smoother viewing experience.
